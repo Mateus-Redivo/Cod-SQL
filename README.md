@@ -1,35 +1,84 @@
-# 🗃️ Repositório de Códigos SQL para Estudo e Ensino de Banco de Dados
+# Aula 2 - Modelo Entidade-Relacionamento (MER) Avançado
 
-Este repositório contém scripts desenvolvidos em **SQL**, com o objetivo de auxiliar no ensino e na aprendizagem dos fundamentos de **bancos de dados relacionais**. Os exemplos são utilizados em aulas e também organizados para estudo individual.
+## Objetivo
+O objetivo desta aula foi apresentar conceitos avançados do Modelo Entidade-Relacionamento, incluindo entidades fracas, especialização/generalização e relacionamentos N-ários.
 
-## 📚 Objetivo
+## Estrutura do Código
 
-Disponibilizar exemplos práticos, claros e didáticos para apoiar o ensino da **estruturação de bancos de dados**, abrangendo desde a criação de tabelas até consultas mais complexas com **SQL**.
+### 1. Entidades Fortes
+#### Aluno
+```sql
+CREATE TABLE Aluno (
+    AlunoID INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    DataNascimento DATE
+);
+```
 
-## 🎓 Público-alvo
+#### Curso (Superclasse)
+```sql
+CREATE TABLE Curso (
+    CursoID INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    CargaHoraria INT
+);
+```
 
-Estudantes de cursos de tecnologia e iniciantes em banco de dados que desejam compreender como estruturar e manipular dados em um SGBD relacional, assim como profissionais que queiram revisar os fundamentos de **modelagem e consulta SQL**.
+### 2. Entidade Fraca
+#### Dependente
+```sql
+CREATE TABLE Dependente (
+    AlunoID INT,
+    SequencialDep INT,
+    Nome VARCHAR(100) NOT NULL,
+    Parentesco VARCHAR(50),
+    PRIMARY KEY (AlunoID, SequencialDep),
+    FOREIGN KEY (AlunoID) REFERENCES Aluno(AlunoID)
+);
+```
 
-## 🧠 O que você encontrará aqui?
+### 3. Especializações (Herança)
+#### CursoPresencial
+```sql
+CREATE TABLE CursoPresencial (
+    CursoID INT PRIMARY KEY,
+    Sala VARCHAR(20),
+    Bloco VARCHAR(10),
+    FOREIGN KEY (CursoID) REFERENCES Curso(CursoID)
+);
+```
 
-- Conceitos fundamentais de bancos de dados relacionais
-- Criação e modelagem de tabelas usando SQL
-- Definição de chaves primárias, estrangeiras e restrições de integridade
-- Consultas básicas e avançadas (`SELECT`, `JOINs`, `subqueries`, `agregações`)
-- Scripts para inserção, atualização e exclusão de dados (`DML`)
-- Scripts para definição e alteração da estrutura (`DDL`)
-- Exemplos comentados e organizados por tema ou aula
+#### CursoOnline
+```sql
+CREATE TABLE CursoOnline (
+    CursoID INT PRIMARY KEY,
+    Plataforma VARCHAR(50),
+    LinkAcesso VARCHAR(200),
+    FOREIGN KEY (CursoID) REFERENCES Curso(CursoID)
+);
+```
 
-## 🛠️ Tecnologias e Ferramentas Utilizadas
+### 4. Relacionamento N-ário
+#### AvaliacaoCurso
+```sql
+CREATE TABLE AvaliacaoCurso (
+    AvaliacaoID INT PRIMARY KEY,
+    AlunoID INT,
+    CursoID INT,
+    ProfessorID INT,
+    Nota DECIMAL(3,1),
+    Comentario TEXT,
+    DataAvaliacao DATE,
+    FOREIGN KEY (AlunoID) REFERENCES Aluno(AlunoID),
+    FOREIGN KEY (CursoID) REFERENCES Curso(CursoID),
+    FOREIGN KEY (ProfessorID) REFERENCES Professor(ProfessorID)
+);
+```
 
-- **SGBDs suportados**: MySQL, PostgreSQL, SQL Server
-- **Ambientes de teste sugeridos**:
-  - [DBeaver](https://dbeaver.io/) – cliente universal para banco de dados
-  - [MySQL Workbench](https://www.mysql.com/products/workbench/)
-  - [pgAdmin](https://www.pgadmin.org/) – interface gráfica para PostgreSQL
-  - [Azure Data Studio](https://learn.microsoft.com/sql/azure-data-studio/) – ideal para SQL Server
-  - Serviços online como [SQL Fiddle](http://sqlfiddle.com/) e [DB Fiddle](https://www.db-fiddle.com/)
-
----
-
-> ✨ Fique à vontade para explorar, adaptar e contribuir com o repositório para fortalecer o aprendizado colaborativo.
+## Conclusão
+Esta aula demonstrou conceitos avançados de modelagem, incluindo:
+- Entidades fracas e suas dependências
+- Especialização/Generalização de entidades
+- Relacionamentos N-ários
+- Chaves compostas
+- Herança em bancos de dados relacionais
