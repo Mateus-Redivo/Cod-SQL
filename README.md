@@ -1,35 +1,71 @@
-# 🗃️ Repositório de Códigos SQL para Estudo e Ensino de Banco de Dados
+# Aula 4 - Cardinalidade em Modelagem de Dados
 
-Este repositório contém scripts desenvolvidos em **SQL**, com o objetivo de auxiliar no ensino e na aprendizagem dos fundamentos de **bancos de dados relacionais**. Os exemplos são utilizados em aulas e também organizados para estudo individual.
+## Objetivo
+O objetivo desta aula foi apresentar os diferentes tipos de cardinalidade em relacionamentos entre entidades.
 
-## 📚 Objetivo
+## Estrutura do Código
 
-Disponibilizar exemplos práticos, claros e didáticos para apoiar o ensino da **estruturação de bancos de dados**, abrangendo desde a criação de tabelas até consultas mais complexas com **SQL**.
+### 1. Relacionamento Um para Um (1:1)
+#### Pessoa e CPF
+```sql
+CREATE TABLE Pessoa (
+    PessoaID INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL
+);
 
-## 🎓 Público-alvo
+CREATE TABLE CPF (
+    Numero VARCHAR(11) PRIMARY KEY,
+    PessoaID INT UNIQUE NOT NULL,
+    FOREIGN KEY (PessoaID) REFERENCES Pessoa(PessoaID)
+);
+```
 
-Estudantes de cursos de tecnologia e iniciantes em banco de dados que desejam compreender como estruturar e manipular dados em um SGBD relacional, assim como profissionais que queiram revisar os fundamentos de **modelagem e consulta SQL**.
+### 2. Relacionamento Um para Muitos (1:N)
+#### Departamento e Funcionário
+```sql
+CREATE TABLE Departamento (
+    DepartamentoID INT PRIMARY KEY,
+    Nome VARCHAR(50) NOT NULL
+);
 
-## 🧠 O que você encontrará aqui?
+CREATE TABLE Funcionario (
+    FuncionarioID INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    DepartamentoID INT NOT NULL,
+    FOREIGN KEY (DepartamentoID) REFERENCES Departamento(DepartamentoID)
+);
+```
 
-- Conceitos fundamentais de bancos de dados relacionais
-- Criação e modelagem de tabelas usando SQL
-- Definição de chaves primárias, estrangeiras e restrições de integridade
-- Consultas básicas e avançadas (`SELECT`, `JOINs`, `subqueries`, `agregações`)
-- Scripts para inserção, atualização e exclusão de dados (`DML`)
-- Scripts para definição e alteração da estrutura (`DDL`)
-- Exemplos comentados e organizados por tema ou aula
+### 3. Relacionamento Muitos para Muitos (N:M)
+#### Aluno e Disciplina
+```sql
+CREATE TABLE Aluno (
+    AlunoID INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL
+);
 
-## 🛠️ Tecnologias e Ferramentas Utilizadas
+CREATE TABLE Disciplina (
+    DisciplinaID INT PRIMARY KEY,
+    Nome VARCHAR(50) NOT NULL
+);
 
-- **SGBDs suportados**: MySQL, PostgreSQL, SQL Server
-- **Ambientes de teste sugeridos**:
-  - [DBeaver](https://dbeaver.io/) – cliente universal para banco de dados
-  - [MySQL Workbench](https://www.mysql.com/products/workbench/)
-  - [pgAdmin](https://www.pgadmin.org/) – interface gráfica para PostgreSQL
-  - [Azure Data Studio](https://learn.microsoft.com/sql/azure-data-studio/) – ideal para SQL Server
-  - Serviços online como [SQL Fiddle](http://sqlfiddle.com/) e [DB Fiddle](https://www.db-fiddle.com/)
+CREATE TABLE AlunoDisciplina (
+    AlunoID INT,
+    DisciplinaID INT,
+    DataMatricula DATE NOT NULL,
+    PRIMARY KEY (AlunoID, DisciplinaID),
+    FOREIGN KEY (AlunoID) REFERENCES Aluno(AlunoID),
+    FOREIGN KEY (DisciplinaID) REFERENCES Disciplina(DisciplinaID)
+);
+```
 
----
+## Conclusão
+Esta aula demonstrou os três principais tipos de cardinalidade:
+- Relacionamento Um para Um (1:1)
+- Relacionamento Um para Muitos (1:N)
+- Relacionamento Muitos para Muitos (N:M)
 
-> ✨ Fique à vontade para explorar, adaptar e contribuir com o repositório para fortalecer o aprendizado colaborativo.
+E suas implementações práticas através de:
+- Chaves primárias e estrangeiras
+- Restrições UNIQUE
+- Tabelas de junção para relacionamentos N:M
