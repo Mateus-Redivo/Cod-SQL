@@ -1,0 +1,15 @@
+Exercício 1: Identificação de Atributos
+Analise a tabela Aluno do script fornecido e identifique todos os atributos que fazem parte do atributo composto "Endereço". 
+Para cada um deles, explique brevemente sua função e como eles se relacionam ao conceito de atributo composto em bancos de dados.
+
+Exercício 2: Atributos Derivados
+Explique o que são atributos derivados no contexto de bancos de dados, utilizando como exemplo a VIEW AlunoComIdade. 
+Como o atributo Idade é calculado? Proponha outro exemplo de atributo derivado que poderia ser útil neste banco de dados.
+
+Exercício 3: Atributos Multivalorados
+Com base na tabela TelefonesAluno, explique porque ela foi criada separadamente da tabela Aluno. 
+Discuta por que os atributos multivalorados não podem ser armazenados diretamente em uma tabela principal e como a solução implementada resolve esse problema.
+
+Exercício 4: Relacionamentos entre Entidades
+Analise o script SQL fornecido e desenhe um diagrama simples que ilustre os relacionamentos entre as entidades Aluno, Curso e Matricula. 
+Para cada relacionamento, identifique sua cardinalidade (1:1, 1:N ou N:M) e justifique sua resposta.
