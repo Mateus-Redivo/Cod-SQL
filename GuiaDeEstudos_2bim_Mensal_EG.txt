@@ -1,0 +1,104 @@
+GUIA DE ESTUDOS: GITHUB E SISTEMA DE CONTROLE DE VERSÃO GIT
+==========================================================
+
+1. INTRODUÇÃO AO GITHUB E GIT
+----------------------------
+
+O QUE É O GITHUB?
+- Definição: Plataforma de hospedagem de código-fonte baseada em nuvem que utiliza o Git como sistema de controle de versão
+- Diferença entre Git (ferramenta) e GitHub (plataforma)
+- Principais funcionalidades do GitHub (repositórios, issues, pull requests, etc.)
+
+2. COMANDOS BÁSICOS DO GIT
+-------------------------
+
+COMANDOS ESSENCIAIS PARA UTILIZAR O GIT:
+
+- git init: Inicia um novo repositório Git local
+
+- git clone: Cria uma cópia local de um repositório remoto
+  Exemplo: git clone https://github.com/usuario/repositorio.git
+
+- git add: Adiciona arquivos à área de staging (preparação)
+  Exemplos: 
+  - git add arquivo.txt (adiciona um arquivo específico)
+  - git add . (adiciona todos os arquivos modificados)
+
+- git commit: Salva as mudanças no repositório local
+  Exemplo: git commit -m "Mensagem descritiva sobre as alterações"
+
+- git push: Envia as alterações locais para o repositório remoto
+  Exemplo: git push origin main
+
+- git pull: Busca e integra alterações do repositório remoto para o local
+  Exemplo: git pull origin main
+
+- git status: Mostra o estado atual dos arquivos (modificados, na área de staging, etc.)
+
+3. BRANCHES E FLUXO DE TRABALHO
+-----------------------------
+
+O QUE SÃO BRANCHES:
+- Conceito de linha de desenvolvimento independente
+- Por que usar branches (desenvolvimento paralelo, isolamento de features)
+- Comandos relacionados:
+  - git branch: Lista, cria ou exclui branches
+  - git checkout: Muda entre branches
+  - git merge: Combina alterações de diferentes branches
+
+4. PULL REQUESTS
+--------------
+
+ENTENDENDO PULL REQUESTS:
+- Definição: Mecanismo para propor alterações e solicitar que sejam revisadas antes de serem integradas
+- Importância na colaboração em projetos
+- Como criar e gerenciar pull requests
+- Processo de review de código
+
+5. BOAS PRÁTICAS
+--------------
+
+MENSAGENS DE COMMIT:
+- Importância de mensagens descritivas e claras
+- Como escrever boas mensagens de commit
+- Por que mensagens de commit bem escritas facilitam a compreensão das mudanças no futuro
+
+ENTENDENDO STATUS DE ARQUIVOS:
+- Significado de "modified", "staged", "committed"
+- Como interpretar a saída do comando git status
+- Ciclo de vida dos arquivos no Git
+
+6. VANTAGENS DO GIT COMO SISTEMA DE CONTROLE DE VERSÃO DISTRIBUÍDO
+----------------------------------------------------------------
+
+- Cada desenvolvedor possui uma cópia completa do histórico do projeto
+- Trabalho offline possível (não depende de conexão constante com servidor)
+- Facilidade para criar branches e experimentar
+- Segurança e redundância dos dados
+
+7. GITHUB ISSUES E OUTRAS FERRAMENTAS
+-----------------------------------
+
+- GitHub Issues: Sistema para acompanhar tarefas, melhorias e bugs
+- Outras ferramentas úteis do GitHub:
+  - GitHub Pages
+  - GitHub Actions
+  - GitHub Gists
+  - GitHub Sponsors
+
+DICAS PARA A PROVA
+-----------------
+
+1. Revise os conceitos fundamentais de Git e GitHub
+2. Pratique os comandos básicos em um repositório de teste
+3. Entenda o propósito de cada comando e em qual situação deve ser usado
+4. Compreenda o fluxo de trabalho colaborativo usando branches e pull requests
+5. Saiba identificar as vantagens do sistema de controle de versão distribuído
+
+MATERIAL COMPLEMENTAR RECOMENDADO
+-------------------------------
+
+- Documentação oficial do Git: https://git-scm.com/doc
+- GitHub Learning Lab: https://lab.github.com/
+- GitHub Guides: https://guides.github.com/
+- Tutoriais em vídeo sobre Git e GitHub (YouTube)
