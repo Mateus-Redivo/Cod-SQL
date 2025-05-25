@@ -1,0 +1,192 @@
+QUESTÃO 1
+Qual é a finalidade do comando CREATE DATABASE IF NOT EXISTS Aulas_BD no MySQL?
+
+A) Criar um banco de dados chamado Aulas_BD apenas se ele já existir 
+B) Criar um banco de dados chamado Aulas_BD somente se ele ainda não existir 
+C) Verificar se o banco de dados Aulas_BD existe e retornar um erro caso não exista 
+D) Remover o banco de dados Aulas_BD se ele já existir 
+E) Renomear um banco de dados existente para Aulas_BD
+
+QUESTÃO 2
+Analise o trecho de código abaixo:
+CREATE TABLE Aluno (
+    AlunoID INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(150)
+)
+
+Qual é o significado da restrição NOT NULL aplicada ao campo Nome na tabela Aluno?
+
+A) Permite que o campo Nome aceite valores vazios durante a inserção de dados 
+B) Obriga que o campo Nome contenha um valor em todos os registros, não podendo ser deixado em branco 
+C) Cria um índice automaticamente para o campo Nome para melhorar o desempenho de consultas 
+D) Define o campo Nome como chave candidata da tabela 
+E) Impede a atualização do valor do campo Nome após sua inserção inicial
+
+QUESTÃO 3
+Observe o trecho de código da criação da tabela Aluno abaixo:
+
+CREATE TABLE Aluno (
+    AlunoID INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    DataNascimento DATE,
+    Email VARCHAR(150),
+    -- Atributo Composto: Endereço
+    Rua VARCHAR(100),
+    Numero VARCHAR(10),
+    Bairro VARCHAR(50),
+    Cidade VARCHAR(50),
+    Estado VARCHAR(2),
+    CEP VARCHAR(8)
+)
+
+Como foi implementado o atributo composto Endereço no modelo relacional?
+
+A) Como uma tabela separada relacionada através de chave estrangeira 
+B) Como uma coluna única que armazena todos os dados em formato JSON 
+C) Através da decomposição em vários atributos simples (Rua, Numero, Bairro, etc.) na mesma tabela 
+D) Utilizando um tipo de dado estruturado específico para endereços 
+E) Como uma coluna VARCHAR contendo todo o endereço concatenado
+
+QUESTÃO 4
+Considerando o código da tabela Matricula abaixo: 
+
+CREATE TABLE Matricula (
+    MatriculaID INT PRIMARY KEY,
+    AlunoID INT NOT NULL,
+    CursoID INT NOT NULL,
+    DataMatricula DATE,
+    FOREIGN KEY (AlunoID) REFERENCES Aluno(AlunoID),
+    FOREIGN KEY (CursoID) REFERENCES Curso(CursoID)
+)
+
+Qual é a principal função das cláusulas FOREIGN KEY nesta tabela?
+
+A) Acelerar consultas que envolvem as tabelas Aluno e Curso 
+B) Automatizar a exclusão de registros relacionados em cascata 
+C) Garantir a integridade referencial, impedindo referências a registros que não existem 
+D) Permitir que os campos AlunoID e CursoID aceitem valores nulos 
+E) Criar índices secundários para otimizar a performance do banco de dados
+
+QUESTÃO 5
+Analise o código da tabela TelefonesAluno:
+
+CREATE TABLE TelefonesAluno (
+    TelefoneID INT,
+    AlunoID INT NOT NULL,
+    Telefone VARCHAR(15),
+    TipoTelefone VARCHAR(20),
+    PRIMARY KEY (AlunoID, TelefoneID),
+    FOREIGN KEY (AlunoID) REFERENCES Aluno(AlunoID)
+)
+
+Por que é necessário criar uma tabela separada para armazenar os telefones dos alunos?
+
+A) Apenas para economizar espaço de armazenamento na tabela Aluno 
+B) Para implementar corretamente um atributo multivalorado, pois um aluno pode ter vários telefones 
+C) Porque o MySQL não permite mais de dez colunas em uma única tabela 
+D) Para facilitar a busca de telefones sem precisar acessar a tabela Aluno 
+E) Porque é uma exigência da normalização que todos os contatos fiquem em tabelas separadas
+
+QUESTÃO 6
+Analise a definição da tabela Matricula:
+
+CREATE TABLE Matricula (
+    MatriculaID INT PRIMARY KEY,
+    AlunoID INT NOT NULL,
+    CursoID INT NOT NULL,
+    DataMatricula DATE,
+    FOREIGN KEY (AlunoID) REFERENCES Aluno(AlunoID),
+    FOREIGN KEY (CursoID) REFERENCES Curso(CursoID)
+)
+
+Que tipo de relacionamento esta tabela representa entre as entidades Aluno e Curso?
+
+A) Um relacionamento um-para-um (1:1) 
+B) Um relacionamento um-para-muitos (1:N) 
+C) Um relacionamento muitos-para-muitos (N:M) 
+D) Um auto-relacionamento 
+E) Um relacionamento de herança
+
+QUESTÃO 7
+Sobre o tipo de dados VARCHAR utilizado no campo Nome VARCHAR(100) da tabela Aluno (Questão 3), é correto afirmar:
+
+A) Armazena texto com tamanho fixo, ocupando sempre 100 bytes de espaço 
+B) Armazena texto com tamanho variável, economizando espaço ao utilizar apenas o necessário, até o limite de 100 caracteres 
+C) É idêntico ao tipo TEXT, sem qualquer diferença na forma de armazenamento 
+D) Permite armazenar apenas caracteres ASCII, rejeitando caracteres especiais ou acentuados 
+E) Ocupa sempre menos espaço que o tipo CHAR, independentemente do tamanho dos dados armazenados
+
+QUESTÃO 8
+Observe o exemplo de criação de tabela abaixo:
+
+CREATE TABLE Professor (
+    ProfessorID INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Formacao VARCHAR(150),
+    DataContratacao DATE DEFAULT CURRENT_DATE,
+    Salario DECIMAL(10,2) NOT NULL CHECK (Salario > 0),
+    Departamento VARCHAR(50),
+    Email VARCHAR(150) UNIQUE,
+    Status ENUM('Ativo', 'Afastado', 'Aposentado') DEFAULT 'Ativo'
+)
+
+Associe corretamente cada cláusula à sua função, preenchendo os parênteses com o número correspondente à definição abaixo:
+
+| Cláusula           | Função |
+| ------------------ | ------ |
+| 1) AUTO_INCREMENT  | (   )  |
+| 2) PRIMARY KEY     | (   )  |
+| 3) NOT NULL        | (   )  |
+| 4) DEFAULT         | (   )  |
+| 5) CHECK           | (   )  |
+| 6) UNIQUE          | (   )  |
+| 7) ENUM            | (   )  |
+
+Definições:
+1 Define valores permitidos para uma coluna, restringindo as opções disponíveis
+
+2 Identifica unicamente cada registro na tabela, não permitindo duplicatas nem valores nulos
+
+3 Impede que a coluna receba valores nulos ou vazios
+
+4 Estabelece um valor padrão quando nenhum valor é especificado
+
+5 Estabelece uma restrição que valida se os valores inseridos atendem determinada condição
+
+6 Garante que os valores em uma coluna sejam únicos entre todos os registros
+
+7 Gera valores únicos automaticamente para a coluna, incrementando a cada registro
+
+A) 5, 6, 1, 7, 2, 3, 4
+B) 3, 2, 7, 6, 1, 5, 4
+C) 6, 5, 2, 1, 7, 4, 3
+D) 2, 4, 5, 7, 1, 3, 6
+E) 7, 2, 3, 4, 5, 6, 1
+
+QUESTÃO 9
+Na criação da tabela TelefonesAluno, a chave primária é definida como PRIMARY KEY (AlunoID, TelefoneID). O que isso representa?
+
+CREATE TABLE TelefonesAluno (
+    TelefoneID INT,
+    AlunoID INT NOT NULL,
+    Telefone VARCHAR(15),
+    TipoTelefone VARCHAR(20),
+    PRIMARY KEY (AlunoID, TelefoneID),
+    FOREIGN KEY (AlunoID) REFERENCES Aluno(AlunoID)
+)
+
+A) Uma chave estrangeira que referencia duas tabelas distintas 
+B) Uma chave primária composta, onde a combinação das duas colunas identifica unicamente cada registro 
+C) Um erro de modelagem, pois chaves primárias só podem conter uma única coluna 
+D) Um índice secundário para melhorar o desempenho de consultas específicas 
+E) Um mecanismo automático de particionamento da tabela por AlunoID
+
+QUESTÃO 10
+Qual é a função do comando USE Aulas_BD em um script SQL?
+
+A) Criar um novo banco de dados chamado Aulas_BD 
+B) Excluir o banco de dados Aulas_BD se ele existir 
+C) Selecionar o banco de dados Aulas_BD como contexto atual para as operações subsequentes 
+D) Verificar se o banco de dados Aulas_BD existe e retornar um erro caso não exista 
+E) Fazer backup automático do banco de dados Aulas_BD
