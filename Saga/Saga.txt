@@ -1,0 +1,92 @@
+RPG – A Saga do Aventureiro
+
+Início do Jogo – Criando o Mundo
+Você chega ao vilarejo de Pedra do Amanhecer.
+Antes de começar, o mundo precisa ser preparado para receber heróis e aventuras.
+
+Capítulo 1 – O Despertar no Vilarejo
+Você acorda em uma cama simples. Um ancião chamado Elion se aproxima:
+“Estranho viajante, para viver entre nós, precisa ser registrado no Livro dos Heróis.”
+
+Missão:
+- Escolher seu nome, classe e atributos iniciais (HP, Mana).
+- Ser registrado como um herói do vilarejo.
+- Criar também o registro de mais dois aventureiros que viverão na vila para interações futuras.
+
+Capítulo 2 – O Inventário Inicial
+No centro do vilarejo, você conhece o Ferreiro e a Curandeira, que oferecem seus primeiros itens.
+
+Missão:
+- Receber equipamentos iniciais de combate e defesa.
+- Guardar suas poções de cura.
+- Os outros aventureiros também recebem seus equipamentos.
+
+Capítulo 3 – O Primeiro Combate
+Ao sair do vilarejo, um goblin ataca você na estrada!
+Você perde parte de sua vida, mas usa uma poção para se recuperar.
+
+Missão:
+- Reduzir seu HP devido ao ataque.
+- Usar uma poção de cura para recuperar parte da vida.
+- Retirar uma poção do seu estoque após o uso.
+
+Capítulo 4 – Perdas na Jornada
+Uma tempestade repentina atinge a estrada.
+Sua espada se parte em dois pedaços e não pode mais ser usada.
+
+Missão:
+- Remover a espada quebrada do seu inventário.
+
+Capítulo 5 – Criando o Mundo
+Você descobre a Floresta Sombria e anota no mapa todos os perigos que ela esconde.
+Depois, descobre também a Montanha Gélida, lar de monstros implacáveis.
+
+Missão:
+- Registrar novos ambientes e suas descrições.
+- Cadastrar os inimigos que habitam cada região.
+
+Capítulo 6 – O Boato no Vilarejo
+Um mensageiro chega, pedindo informações sobre os inimigos que vivem na Floresta Sombria.
+
+Missão:
+- Listar todos os inimigos conhecidos desse ambiente e seus atributos.
+
+Capítulo 7 – Preparativos para a Viagem
+Antes de seguir para a próxima aventura, você reforça sua armadura e compra mais poções de cura.
+
+Missão:
+- Aumentar sua vida máxima com melhorias no equipamento.
+- Adicionar novas poções ao seu inventário.
+
+Capítulo 8 – Emboscada na Estrada
+Bandidos emboscam você durante a viagem!
+Eles tiram parte da sua vida e roubam seu elmo.
+
+Missão:
+- Reduzir seu HP após o ataque.
+- Remover o elmo roubado do inventário.
+
+Capítulo 9 – O Guardião da Floresta
+Na entrada da Floresta Sombria, o imenso Guardião Ent bloqueia o caminho.
+Ele só permitirá a passagem de quem tiver a Chave de Carvalho.
+
+Missão:
+- Verificar se você possui a chave no inventário.
+- Caso possua, entregar a chave e seguir adiante.
+
+Capítulo 10 – O Confronto Final
+No coração da floresta, você enfrenta o temido Dragão Sombrio.
+Ele ataca ferozmente, mas você resiste e luta até a vitória.
+
+Missão:
+- Criar o registro do Dragão Sombrio como inimigo.
+- Reduzir seu HP após o ataque dele.
+- Usar poções para se recuperar.
+- Remover o Dragão Sombrio do mundo após derrotá-lo.
+- Exibir seu estado final como herói vencedor.
+
+Epílogo:
+O Dragão Sombrio cai, derrotado.
+Seu nome é gravado no Livro dos Heróis.
+O vilarejo está salvo.
+Fim da campanha.
