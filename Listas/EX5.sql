@@ -73,7 +73,7 @@ UPDATE funcionarios SET salario = 6500.00 WHERE nome = 'Pedro Lima';
 UPDATE funcionarios SET ativo = 0 WHERE salario < 3000.00;
 
 -- 5. Mude o setor de todos os 'Analistas' para 'Desenvolvimento'
-UPDATE funcionarios SET setor = 'Desenvolvimento' WHERE setor = 'Analistas'
+UPDATE funcionarios SET setor = 'Desenvolvimento' WHERE setor = 'Analistas';
 
 -- 6. Aumente em R$ 500,00 o salário de todos os funcionários admitidos em 2023
 UPDATE funcionarios SET salario = salario + 500 WHERE data_admissao >= '2023-01-01';
