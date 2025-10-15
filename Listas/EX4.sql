@@ -5,7 +5,7 @@
 INSTRUÇÕES:
 Primeiro, crie as tabelas e insira os dados:
 
-CREATE TABLE Produtos (
+CREATE TABLE produtos (
     id INT PRIMARY KEY IDENTITY(1,1),
     nome VARCHAR(100) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE Produtos (
     estoque INT DEFAULT 0
 );
 
-INSERT INTO Produtos VALUES 
+INSERT INTO produtos VALUES 
 ('Camiseta Básica', 'Camisetas', 'M', 'Branca', 39.90, 15),
 ('Calça Jeans', 'Calças', 'G', 'Azul', 89.90, 8),
 ('Vestido Floral', 'Vestidos', 'P', 'Rosa', 129.90, 5),
@@ -25,20 +25,20 @@ INSERT INTO Produtos VALUES
 
 Agora faça as seguintes consultas:
 
-1. Produtos da categoria 'Camisetas'
-2. Produtos com preço menor que R$ 50,00
-3. Produtos tamanho 'M' ou 'G'
-4. Produtos com estoque maior que 10 unidades
-5. Produtos da cor 'Azul' ordenados por preço
-6. Produtos com preço entre R$ 40,00 e R$ 80,00
-7. Produtos que NÃO são da categoria 'Vestidos'
-8. Produtos com nome que contém a palavra 'Jeans'
+1. produtos da categoria 'Camisetas'
+2. produtos com preço menor que R$ 50,00
+3. produtos tamanho 'M' ou 'G'
+4. produtos com estoque maior que 10 unidades
+5. produtos da cor 'Azul' ordenados por preço
+6. produtos com preço entre R$ 40,00 e R$ 80,00
+7. produtos que NÃO são da categoria 'Vestidos'
+8. produtos com nome que contém a palavra 'Jeans'
 */
 
 -- RESOLVA AQUI:
 
 -- Criação da tabela
-CREATE TABLE Produtos (
+CREATE TABLE produtos (
     id INT PRIMARY KEY IDENTITY(1,1),
     nome VARCHAR(100) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE Produtos (
 );
 
 -- Inserção dos dados
-INSERT INTO Produtos (nome, categoria, tamanho, cor, preco, estoque) VALUES 
+INSERT INTO produtos (nome, categoria, tamanho, cor, preco, estoque) VALUES 
 ('Camiseta Básica', 'Camisetas', 'M', 'Branca', 39.90, 15),
 ('Calça Jeans', 'Calças', 'G', 'Azul', 89.90, 8),
 ('Vestido Floral', 'Vestidos', 'P', 'Rosa', 129.90, 5),
@@ -59,35 +59,35 @@ INSERT INTO Produtos (nome, categoria, tamanho, cor, preco, estoque) VALUES
 
 -- CONSULTAS COM FILTROS:
 
--- 1. Produtos da categoria 'Camisetas'
-SELECT * FROM Produtos 
+-- 1. produtos da categoria 'Camisetas'
+SELECT * FROM produtos 
 WHERE categoria = 'Camisetas';
 
--- 2. Produtos com preço menor que R$ 50,00
-SELECT * FROM Produtos 
+-- 2. produtos com preço menor que R$ 50,00
+SELECT * FROM produtos 
 WHERE preco < 50.00;
 
--- 3. Produtos tamanho 'M' ou 'G'
-SELECT * FROM Produtos 
+-- 3. produtos tamanho 'M' ou 'G'
+SELECT * FROM produtos 
 WHERE tamanho IN ('M', 'G');
 
--- 4. Produtos com estoque maior que 10 unidades
-SELECT * FROM Produtos 
+-- 4. produtos com estoque maior que 10 unidades
+SELECT * FROM produtos 
 WHERE estoque > 10;
 
--- 5. Produtos da cor 'Azul' ordenados por preço
-SELECT * FROM Produtos 
+-- 5. produtos da cor 'Azul' ordenados por preço
+SELECT * FROM produtos 
 WHERE cor = 'Azul' 
 ORDER BY preco;
 
--- 6. Produtos com preço entre R$ 40,00 e R$ 80,00
-SELECT * FROM Produtos 
+-- 6. produtos com preço entre R$ 40,00 e R$ 80,00
+SELECT * FROM produtos 
 WHERE preco BETWEEN 40.00 AND 80.00;
 
--- 7. Produtos que NÃO são da categoria 'Vestidos'
-SELECT * FROM Produtos 
+-- 7. produtos que NÃO são da categoria 'Vestidos'
+SELECT * FROM produtos 
 WHERE categoria != 'Vestidos';
 
--- 8. Produtos com nome que contém a palavra 'Jeans'
-SELECT * FROM Produtos 
+-- 8. produtos com nome que contém a palavra 'Jeans'
+SELECT * FROM produtos 
 WHERE nome LIKE '%Jeans%';
