@@ -23,3 +23,23 @@ Usando as tabelas criadas no EX1, insira os seguintes dados:
 */
 
 -- RESOLVA AQUI:
+
+-- 1. Inserindo dados na tabela 'livros'
+INSERT INTO livros (titulo, autor, ano_publicacao, preco) VALUES
+('O Pequeno Príncipe', 'Antoine de Saint-Exupéry', 1943, 25.90),
+('1984', 'George Orwell', 1949, 32.50),
+('Dom Casmurro', 'Machado de Assis', 1899, 18.75),
+('O Alquimista', 'Paulo Coelho', 1988, 29.90);
+
+-- 2. Inserindo dados na tabela 'clientes'
+INSERT INTO clientes (nome, email, telefone) VALUES
+('Maria Silva', 'maria@email.com', '11999887766'),
+('João Santos', 'joao@email.com', '11888776655'),
+('Ana Costa', 'ana@email.com', '11777665544');
+
+-- 3. Inserindo dados na tabela 'emprestimos'
+INSERT INTO emprestimos (cliente_id, livro_id, data_emprestimo) VALUES
+(1, 2, '2024-10-01'),  -- Maria pegou 1984
+(2, 1, '2024-10-02'),  -- João pegou O Pequeno Príncipe
+(3, 3, '2024-10-03');  -- Ana pegou Dom Casmurro
+
