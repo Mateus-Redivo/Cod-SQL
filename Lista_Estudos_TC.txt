@@ -1,0 +1,21 @@
+QUESTÃO 1: Qual é a ordem de velocidade dos tipos de armazenamento, do mais rápido para o mais lento?
+
+QUESTÃO 2: Quais são as principais diferenças entre SATA e IDE?
+
+QUESTÃO 3: Para que serve a BIOS e qual é sua função no processo de boot?
+
+QUESTÃO 4: Por que uma placa de vídeo dedicada é importante para gaming?
+
+QUESTÃO 5: O que são OpenGL e DirectX e para que servem?
+
+QUESTÃO 6: O que é Ray Tracing e quais são seus benefícios?
+
+QUESTÃO 7: O que é DLSS e como funciona?
+
+QUESTÃO 8: Quais são as principais diferenças entre Unity e Unreal Engine?
+
+QUESTÃO 9: Para que serve a pasta térmica e como ela funciona?
+
+QUESTÃO 10: Como melhorar a performance em jogos através de ajustes gráficos?
+
+QUESTÃO 11: Quais são os componentes essenciais para montagem de um PC gam

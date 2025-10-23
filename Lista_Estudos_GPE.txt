@@ -1,0 +1,25 @@
+QUESTÃO 1: Quais são as principais estratégias de ativação de marca em eventos para jogos?
+
+QUESTÃO 2: Qual é a diferença entre marketing direto e marketing interno para jogos?
+
+QUESTÃO 3: Quais são os tipos de promoção utilizados na publicidade de jogos?
+
+QUESTÃO 4: Qual é a ordem correta das fases do desenvolvimento de jogos?
+
+QUESTÃO 5: Para que serve o QA (Quality Assurance) no desenvolvimento de jogos?
+
+QUESTÃO 6: O que é post-mortem no contexto de desenvolvimento de jogos?
+
+QUESTÃO 7: Qual engine de jogos é mais popular para desenvolvimento indie?
+
+QUESTÃO 8: Quais são as principais responsabilidades de um Game Designer?
+
+QUESTÃO 9: Qual é a função de um QA Tester na equipe de desenvolvimento?
+
+QUESTÃO 10: Qual é a plataforma de distribuição mais popular para jogos de PC?
+
+QUESTÃO 11: O que são assets no desenvolvimento de jogos?
+
+QUESTÃO 12: Qual é a diferença entre testes Alpha e Beta?
+
+QUESTÃO 13: Quais são as principais plataformas de distribuição para jogos mobi
