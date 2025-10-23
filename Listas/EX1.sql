@@ -1,4 +1,3 @@
--- Active: 1756070023709@@127.0.0.1@3306@listas
 -- EXERCÍCIO 1 - CRIAÇÃO DE TABELAS (CREATE TABLE)
 -- Tema: Sistema de Biblioteca
 

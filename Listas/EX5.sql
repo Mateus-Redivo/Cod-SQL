@@ -1,4 +1,3 @@
--- Active: 1756070023709@@127.0.0.1@3306@teste
 -- EXERCÍCIO 5 - ATUALIZAÇÃO DE DADOS (UPDATE)
 -- Tema: Sistema de Funcionários
 

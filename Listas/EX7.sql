@@ -62,21 +62,21 @@ Agora faça as seguintes consultas usando INNER JOIN:
 
 -- Criação das tabelas
 CREATE TABLE alunos (
-    id INT PRIMARY KEY IDENTITY(1,1),
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     idade INT,
     turma_id INT
 );
 
 CREATE TABLE turmas (
-    id INT PRIMARY KEY IDENTITY(1,1),
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     professor VARCHAR(100),
     sala VARCHAR(10)
 );
 
 CREATE TABLE notas (
-    id INT PRIMARY KEY IDENTITY(1,1),
+    id INT PRIMARY KEY AUTO_INCREMENT,
     aluno_id INT,
     disciplina VARCHAR(50),
     nota DECIMAL(4,2),
@@ -107,36 +107,71 @@ INSERT INTO notas (aluno_id, disciplina, nota, bimestre) VALUES
 
 -- 1. Liste todos os alunos com suas respectivas turmas (nome do aluno, nome da turma)
 SELECT 
-    a.nome AS [Nome do Aluno],
-    t.nome AS [Nome da Turma]
+    a.nome AS `Nome do Aluno`,
+    t.nome AS `Nome da Turma`
 FROM alunos a
 INNER JOIN turmas t ON a.turma_id = t.id;
 
 -- 2. Mostre alunos, suas turmas e professores
 SELECT 
-    a.nome AS [Nome do Aluno],
-    t.nome AS [Turma],
-    t.professor AS [Professor]
+    a.nome AS `Nome do Aluno`,
+    t.nome AS `Turma`,
+    t.professor AS `Professor`
 FROM alunos a
 INNER JOIN turmas t ON a.turma_id = t.id;
 
 -- 3. Exiba as notas dos alunos com seus nomes e disciplinas
 SELECT 
-    a.nome AS [Nome do Aluno],
-    n.disciplina AS [Disciplina],
-    n.nota AS [Nota],
-    n.bimestre AS [Bimestre]
+    a.nome AS `Nome do Aluno`,
+    n.disciplina AS `Disciplina`,
+    n.nota AS `Nota`,
+    n.bimestre AS `Bimestre`
 FROM alunos a
 INNER JOIN notas n ON a.id = n.aluno_id;
 
 -- 4. Mostre alunos da turma '3º Ano A' com suas notas
 SELECT 
-    a.nome AS [Nome do Aluno],
-    t.nome AS [Turma],
-    n.disciplina AS [Disciplina],
-    n.nota AS [Nota]
+    a.nome AS `Nome do Aluno`,
+    t.nome AS `Turma`,
+    n.disciplina AS `Disciplina`,
+    n.nota AS `Nota`
 FROM alunos a
 INNER JOIN turmas t ON a.turma_id = t.id
 INNER JOIN notas n ON a.id = n.aluno_id
 WHERE t.nome = '3º Ano A';
 
+-- 5. Liste todos os professores e quantos alunos cada um tem
+SELECT 
+    t.professor AS `Professor`,
+    COUNT(a.id) AS `Quantidade de Alunos`
+FROM turmas t
+INNER JOIN alunos a ON t.id = a.turma_id
+GROUP BY t.professor;
+
+-- 6. Exiba alunos que têm nota em 'Matemática'
+SELECT DISTINCT
+    a.nome AS `Nome do Aluno`,
+    n.disciplina AS `Disciplina`,
+    n.nota AS `Nota`
+FROM alunos a
+INNER JOIN notas n ON a.id = n.aluno_id
+WHERE n.disciplina = 'Matemática';
+
+-- 7. Mostre turmas que têm alunos matriculados
+SELECT DISTINCT
+    t.nome AS `Nome da Turma`,
+    t.professor AS `Professor`,
+    t.sala AS `Sala`
+FROM turmas t
+INNER JOIN alunos a ON t.id = a.turma_id;
+
+-- 8. Liste alunos com nota maior que 8.0 e suas turmas
+SELECT 
+    a.nome AS `Nome do Aluno`,
+    t.nome AS `Turma`,
+    n.disciplina AS `Disciplina`,
+    n.nota AS `Nota`
+FROM alunos a
+INNER JOIN turmas t ON a.turma_id = t.id
+INNER JOIN notas n ON a.id = n.aluno_id
+WHERE n.nota > 8.0;
