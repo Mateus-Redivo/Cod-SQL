@@ -1,0 +1,181 @@
+1. Analise o código SQL abaixo:
+
+CREATE TABLE funcionarios (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    salario DECIMAL(8,2) CHECK (salario > 0),
+    setor VARCHAR(50) DEFAULT 'Geral',
+    data_admissao DATE NOT NULL
+);
+
+Qual das afirmações está CORRETA sobre esta estrutura?
+
+A) O campo 'id' será preenchido automaticamente pelo sistema
+B) O campo 'setor' é obrigatório e não pode ser nulo
+C) O campo 'salario' pode aceitar valores negativos
+D) A constraint CHECK não funcionará no SQL Server
+
+2. Considerando o código da questão 1, analise a seguinte inserção de dados:
+
+INSERT INTO funcionarios (nome, salario, data_admissao) VALUES 
+('Ana Silva', 3500.00, '2024-01-15'),
+('João Costa', 4200.00, '2024-02-20'),
+('Maria Santos', 3800.00, '2024-01-30');
+
+Após executar este código, quantos registros terão o setor igual a 'Geral'?
+
+A) 0 registros
+B) 1 registro  
+C) 2 registros
+D) 3 registros
+
+3. Analise a consulta SQL:
+
+SELECT nome, salario, 
+       CASE 
+           WHEN salario > 4000 THEN 'Alto'
+           WHEN salario BETWEEN 3000 AND 4000 THEN 'Médio'
+           ELSE 'Baixo'
+       END AS categoria_salario
+FROM funcionarios
+WHERE data_admissao >= '2024-01-01';
+
+O que esta consulta retorna?
+
+A) Apenas funcionários com salário acima de R$ 4000
+B) Nome, salário e uma categoria baseada na faixa salarial dos funcionários admitidos em 2024
+C) Todos os funcionários ordenados por categoria de salário
+D) Erro de sintaxe devido ao uso incorreto do CASE
+
+4. Observe a estrutura desta tabela:
+
+CREATE TABLE vendas (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    produto VARCHAR(80) NOT NULL,
+    quantidade INT NOT NULL,
+    preco_unitario DECIMAL(10,2) NOT NULL,
+    data_venda DATE DEFAULT GETDATE(),
+    vendedor_id INT,
+    desconto DECIMAL(5,2) DEFAULT 0.00
+);
+
+Para inserir uma venda com desconto de 15%, qual comando está correto?
+
+A) INSERT INTO vendas VALUES ('Notebook', 1, 2500.00, '2024-10-15', 101, 15);
+B) INSERT INTO vendas (produto, quantidade, preco_unitario, vendedor_id, desconto) 
+   VALUES ('Notebook', 1, 2500.00, 101, 15.00);
+C) INSERT INTO vendas (produto, quantidade, preco_unitario, vendedor_id, desconto) 
+   VALUES ('Notebook', 1, 2500.00, 101, 0.15);
+D) INSERT vendas SET produto='Notebook', quantidade=1, desconto='15%';
+
+5. Considere os dados na tabela 'produtos':
+
+id | nome           | categoria    | preco  | estoque
+1  | Mouse Gamer    | Informática  | 89.90  | 0
+2  | Teclado RGB    | Informática  | 199.90 | 15  
+3  | Monitor        | Informática  | 899.90 | 3
+4  | Webcam HD      | Informática  | 150.00 | 8
+5  | Headset        | Informática  | 120.00 | 0
+
+Qual consulta retorna produtos com preço entre R$ 100 e R$ 200 E que estejam em estoque?
+
+A) SELECT * FROM produtos WHERE preco BETWEEN 100 AND 200 AND estoque > 0;
+B) SELECT * FROM produtos WHERE preco >= 100 AND preco <= 200 OR estoque > 0;
+C) SELECT * FROM produtos WHERE (preco > 100 AND preco < 200) AND estoque != 0;
+D) As alternativas A e C estão corretas
+
+6. Analise a consulta:
+
+SELECT nome, preco 
+FROM produtos 
+WHERE preco > 200.00
+ORDER BY preco DESC;
+
+Esta consulta retorna:
+
+A) Todos os produtos ordenados por preço decrescente
+B) Apenas produtos com preço igual a R$ 200,00
+C) Produtos com preço superior a R$ 200,00, ordenados do mais caro para o mais barato
+D) Erro de sintaxe devido ao uso incorreto do WHERE
+
+7. Considere este comando UPDATE:
+
+UPDATE funcionarios 
+SET salario = CASE 
+    WHEN setor = 'TI' THEN salario * 1.15
+    WHEN setor = 'Vendas' THEN salario * 1.10  
+    ELSE salario * 1.05
+END,
+data_atualizacao = GETDATE()
+WHERE data_admissao < '2024-01-01';
+
+O que este comando faz?
+
+A) Atualiza salários com percentuais diferentes por setor, apenas para funcionários antigos
+B) Aumenta o salário apenas dos funcionários de TI em 15%
+C) Gera erro porque não é possível usar CASE em UPDATE
+D) Atualiza todos os funcionários independente da data de admissão
+
+8. Observe esta estrutura de tabela com constraint:
+
+CREATE TABLE pedidos (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    cliente_nome VARCHAR(100) NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    status VARCHAR(20) DEFAULT 'Pendente',
+    CONSTRAINT CK_status CHECK (status IN ('Pendente','Processando','Entregue','Cancelado'))
+);
+
+Qual inserção causará ERRO?
+
+A) INSERT INTO pedidos (cliente_nome, total) VALUES ('João', 150.00);
+B) INSERT INTO pedidos (cliente_nome, total, status) VALUES ('Maria', 200.00, 'Aprovado');
+C) INSERT INTO pedidos (cliente_nome, total, status) VALUES ('Pedro', 300.00, 'Processando');
+D) INSERT INTO pedidos (cliente_nome, total, status) VALUES ('Ana', 250.00, 'Entregue');
+
+9. Associe os comandos DDL com suas respectivas funções:
+
+COMANDOS:
+I. CREATE TABLE
+II. ALTER TABLE ADD COLUMN  
+III. DROP TABLE 
+IV. CREATE INDEX    
+V. ALTER TABLE DROP CONSTRAINT  
+
+FUNÇÕES:
+A) Remove completamente uma tabela e todos os seus dados do banco
+B) Cria uma nova estrutura de tabela no banco de dados
+C) Adiciona uma nova coluna a uma tabela existente
+D) Remove uma restrição (constraint) de uma tabela
+E) Melhora a performance de consultas criando índices
+
+A associação CORRETA é:
+
+A) I-B, II-A, III-C, IV-D, V-E
+B) I-A, II-B, III-C, IV-D, V-E
+C) I-C, II-A, III-B, IV-D, V-E
+D) I-B, II-C, III-A, IV-E, V-D
+
+10. Considere este UPDATE:
+
+UPDATE produtos 
+SET preco = preco * 1.08,
+    estoque = estoque - 1
+WHERE id IN (
+    SELECT TOP 3 id 
+    FROM produtos 
+    WHERE estoque > 5 
+    ORDER BY preco ASC
+);
+
+Este comando:
+
+A) Aumenta preço em 8% e reduz estoque de todos os produtos
+B) Atualiza apenas os 3 produtos mais baratos que têm estoque superior a 5
+C) Gera erro porque não é possível usar subconsulta em UPDATE
+D) Atualiza todos os produtos com estoque maior que 5
+
+
+
+
+
